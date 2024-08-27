@@ -16,16 +16,6 @@ const shoesSchema = new mongoose.Schema({
 
 const Shoes = mongoose.model('Shoes', shoesSchema);
 
-const shoes = new Shoes({
-    name: 'Nike Dunk',
-    size: 8,
-    price: 100,
-    condition: 'New',
-    score: 5
-});
-
-shoes.save()
-
 Shoes.insertMany([
    {
     "name": "Asics Gel Kayano",
