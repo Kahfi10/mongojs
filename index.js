@@ -26,4 +26,38 @@ const shoes = new Shoes({
 
 shoes.save()
 
-console.log(shoes);
+Shoes.insertMany([
+   {
+    "name": "Asics Gel Kayano",
+    "size": 9,
+    "price": 120,
+    "condition": "Good",
+    "score": 7
+   },
+   {
+   "name": "Asics Gel Flux",
+    "size": 10,
+    "price": 1240,
+    "condition": "Good",
+    "score": 6
+   },
+   {
+   "name": "Asics Gel Kayano 14",
+    "size": 9,
+    "price": 1203,
+    "condition": "Good",
+    "score": 9
+   },
+   {
+   "name": "Air Jordan 1",
+    "size": 9,
+    "price": 1203,
+    "condition": "Good",
+    "score": 7
+   },
+]).then((result) =>{
+    console.log('berhasil')
+    console.log(result)
+}).catch((err) => {
+    console.log(err)
+});
