@@ -16,38 +16,46 @@ const shoesSchema = new mongoose.Schema({
 
 const Shoes = mongoose.model('Shoes', shoesSchema);
 
-Shoes.insertMany([
-   {
-    "name": "Asics Gel Kayano",
-    "size": 9,
-    "price": 120,
-    "condition": "Good",
-    "score": 7
-   },
-   {
-   "name": "Asics Gel Flux",
-    "size": 10,
-    "price": 1240,
-    "condition": "Good",
-    "score": 6
-   },
-   {
-   "name": "Asics Gel Kayano 14",
-    "size": 9,
-    "price": 1203,
-    "condition": "Good",
-    "score": 9
-   },
-   {
-   "name": "Air Jordan 1",
-    "size": 9,
-    "price": 1203,
-    "condition": "Good",
-    "score": 7
-   },
-]).then((result) =>{
-    console.log('berhasil')
-    console.log(result)
-}).catch((err) => {
-    console.log(err)
-});
+
+Shoes.findById('66cd742d5f8a6bd0a3869a89').then((result) => {
+    console.log(result);
+}).catch((err) =>{
+    console.log(err);
+})
+
+
+// Shoes.insertMany([
+//    {
+//     "name": "Asics Gel Kayano",
+//     "size": 9,
+//     "price": 120,
+//     "condition": "Good",
+//     "score": 7
+//    },
+//    {
+//    "name": "Asics Gel Flux",
+//     "size": 10,
+//     "price": 1240,
+//     "condition": "Good",
+//     "score": 6
+//    },
+//    {
+//    "name": "Asics Gel Kayano 14",
+//     "size": 9,
+//     "price": 1203,
+//     "condition": "Good",
+//     "score": 9
+//    },
+//    {
+//    "name": "Air Jordan 1",
+//     "size": 9,
+//     "price": 1203,
+//     "condition": "Good",
+//     "score": 7
+//    },
+// ]).then((result) =>{
+//     console.log('berhasil')
+//     console.log(result)
+// }).catch((err) => {
+//     console.log(err)
+// });
