@@ -17,11 +17,29 @@ const shoesSchema = new mongoose.Schema({
 const Shoes = mongoose.model('Shoes', shoesSchema);
 
 
-Shoes.findById('66cd742d5f8a6bd0a3869a89').then((result) => {
+Shoes.findById('66cd76585c9f40dee96d61f0').then((result) => {
     console.log(result);
 }).catch((err) =>{
     console.log(err);
-})
+});
+
+Shoes.updateOne({name: 'Asics Gel Kayano'}, {price: 200}).then((result) => {
+    console.log(result);
+}).catch((err) => {
+    console.log(err);
+});
+
+Shoes.updateMany({condition: 'Good'}, {condition: 'Excellent'}).then((result) => {
+    console.log(result);
+}).catch((err) => {
+    console.log(err);
+});
+
+Shoes.findByIdAndUpdate('66cd76585c9f40dee96d61f0', {score: 12}, {new: true}).then((result) => {
+    console.log(result);
+}).catch((err) => {
+    console.log(err);
+});
 
 
 // Shoes.insertMany([
