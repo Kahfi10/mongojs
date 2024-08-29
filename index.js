@@ -17,67 +17,101 @@ const shoesSchema = new mongoose.Schema({
 const Shoes = mongoose.model('Shoes', shoesSchema);
 
 
-Shoes.findById('66cd76585c9f40dee96d61f0').then((result) => {
-    console.log(result);
-}).catch((err) =>{
-    console.log(err);
-});
+// Shoes.findById('66cd76585c9f40dee96d61f0').then((result) => {
+//     console.log(result);
+// }).catch((err) =>{
+//     console.log(err);
+// });
 
-Shoes.find({}).then((result) => {
+// Shoes.find({}).then((result) => {
+//     console.log(result);
+// })
+
+// Shoes.updateOne({name: 'Asics Gel Kayano'}, {price: 200}).then((result) => {
+//     console.log(result);
+// }).catch((err) => {
+//     console.log(err);
+// });
+
+// Shoes.updateMany({condition: 'Good'}, {condition: 'Excellent'}).then((result) => {
+//     console.log(result);
+// }).catch((err) => {
+//     console.log(err);
+// });
+
+// Shoes.findByIdAndUpdate('66cd76585c9f40dee96d61f0', {score: 12}, {new: true}).then((result) => {
+//     console.log(result);
+// }).catch((err) => {
+//     console.log(err);
+// });
+
+// Delete
+// Shoes.deleteOne({name: 'Asics Gel Kayano'}).then((result) => {
+//     console.log(result);
+// }).catch((err) => {
+//     console.log(err);
+// })
+
+// Shoes.insertMany([
+//     {
+//         'name': 'Asics Gel Kayano',
+//         'size': 9,
+//         'price': 120,
+//         'condition': 'Excellent',
+//         'score': 7
+//     },
+//     {
+//     'name': 'Nike Air Max',
+//     'size': 9,
+//     'price': 120,
+//     'condition': 'Excellent',
+//     'score': 7
+//     }
+// ]).then((result) => {
+//     console.log('berhasil')
+//     console.log(result)
+// }).catch((err) => {
+//     console.log(err)
+// });
+
+// Shoes.insertMany([
+//    {
+//     'name': 'Asics Gel Kayano',
+//     'size': 9,
+//     'price': 120,
+//     'condition': 'Good',
+//     'score': 7
+//    },
+//    {
+//    'name': 'Asics Gel Flux',
+//     'size': 10,
+//     'price': 1240,
+//     'condition': 'Good',
+//     'score': 6
+//    },
+//    {
+//    'name': 'Asics Gel Kayano 14',
+//     'size': 9,
+//     'price': 1203,
+//     'condition': 'Good',
+//     'score': 9
+//    },
+//    {
+//    'name': 'Air Jordan 1',
+//     'size': 9,
+//     'price': 1203,
+//     'condition': 'Good',
+//     'score': 7
+//    },
+// ]).then((result) =>{
+//     console.log('berhasil')
+//     console.log(result)
+// }).catch((err) => {
+//     console.log(err)
+// });
+
+Shoes.deleteMany({condition: 'Excellent'}).then((result) => {
     console.log(result);
+}).catch((err) => {
+    console.log(err);
 })
-
-Shoes.updateOne({name: 'Asics Gel Kayano'}, {price: 200}).then((result) => {
-    console.log(result);
-}).catch((err) => {
-    console.log(err);
-});
-
-Shoes.updateMany({condition: 'Good'}, {condition: 'Excellent'}).then((result) => {
-    console.log(result);
-}).catch((err) => {
-    console.log(err);
-});
-
-Shoes.findByIdAndUpdate('66cd76585c9f40dee96d61f0', {score: 12}, {new: true}).then((result) => {
-    console.log(result);
-}).catch((err) => {
-    console.log(err);
-});
-
-
-Shoes.insertMany([
-   {
-    'name': 'Asics Gel Kayano',
-    'size': 9,
-    'price': 120,
-    'condition': 'Good',
-    'score': 7
-   },
-   {
-   'name': 'Asics Gel Flux',
-    'size': 10,
-    'price': 1240,
-    'condition': 'Good',
-    'score': 6
-   },
-   {
-   'name': 'Asics Gel Kayano 14',
-    'size': 9,
-    'price': 1203,
-    'condition': 'Good',
-    'score': 9
-   },
-   {
-   'name': 'Air Jordan 1',
-    'size': 9,
-    'price': 1203,
-    'condition': 'Good',
-    'score': 7
-   },
-]).then((result) =>{
-    console.log('berhasil')
-    console.log(result)
-}).catch((err) => {
-    console.log(err)
-});
