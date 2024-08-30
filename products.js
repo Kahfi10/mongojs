@@ -6,14 +6,73 @@ mongoose.connect('mongodb://127.0.0.1:27017/ShirtApp')
     console.log('Error connecting to the database');
 });
 
-const shirtSchema = mongoose.Schema({
-    name: {
-        type: String
+const shirtSchema = mongoose.Schema([
+    {
+		name: {
+            type: String,
+            required: true
+        }
     },
-    price: {
-        type: Number
+    {
+		brand: {
+            type: String,
+            required: true
+        }
+    },
+    {
+		price: {
+            type: Number,
+            required: true,
+            min: 0
+        }
+    },
+    {
+		color: {
+            type: String,
+            required: true
+        }
+    },
+    {
+		size: [{
+            type: String,
+            required: true
+        }],
+    },
+    {
+		description: {
+            type: String,
+            required: true,
+            maxLength: 150
+        }
+    },
+    {
+		condition: {
+            type: String,
+            enum: ['baru', 'bekas'],
+            default: 'baru'
+        }             
+    },
+    {
+        stock: {
+            type: Number,
+            required: true,
+            min: 0
+        }
+    },
+    {
+		availability: {
+			online: {
+                type: Boolean,
+                required: true
+            },
+
+			offline: {
+                type: Boolean,
+                required: true
+            }
+		}
     }
-});
+]);
 
 const Shirt = mongoose.model('Shirt', shirtSchema);
 
