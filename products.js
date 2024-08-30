@@ -74,13 +74,44 @@ const shirtSchema = mongoose.Schema([
     }
 ]);
 
-const Shirt = mongoose.model('Shirt', shirtSchema);
+const products = mongoose.model('products', shirtSchema);
 
-const champion = new Shirt({ name: 'Athleticwear Shirt', price: 1020})
+// const product = new products ({
+//     "name": "Celana Chino",
+// 		"brand": "Levi's",
+// 		"price": 900000,
+// 		"color": "krem",
+// 		"size": ["28", "30", "32", "34", "36"],
+// 		"description": "Celana chino dengan warna yang cerah dan desain yang simpel, terbuat dari bahan katun yang nyaman dipakai.",
+// 		"condition": "baru",
+// 		"stock": 15,
+// 		"availability": {
+// 			"online": true,
+// 			"offline": false
+//         }
+// });
 
-champion.save().then((result) => {
-    console.log('berhasil');
-    console.log(result);
+// product.save().then((result) => {
+//     console.log(result);
+// }).catch((err) => {
+//     console.log(err)
+// })
+
+products.findOneAndUpdate({name: 'Celana Chino'}, {
+    "name": "Celana Chino",
+		"brand": "Levi's",
+		"price": 1900000,
+		"color": "abu abu",
+		"size": ["28", "30", "32", "34", "36"],
+		"description": "Celana chino dengan warna yang cerah dan desain yang simpel, terbuat dari bahan katun yang nyaman dipakai.",
+		"condition": "baru",
+		"stock": -15,
+		"availability": {
+			"online": true,
+			"offline": false
+        }
+}, {new: true, runValidators: true}).then((result) => {
+    console.log(result)
 }).catch((err) => {
     console.log(err)
 });
