@@ -110,8 +110,8 @@ const Shoes = mongoose.model('Shoes', shoesSchema);
 //     console.log(err)
 // });
 
-Shoes.deleteMany({condition: 'Excellent'}).then((result) => {
-    console.log(result);
-}).catch((err) => {
-    console.log(err);
-})
+// Shoes.deleteMany({condition: 'Excellent'}).then((result) => {
+//     console.log(result);
+// }).catch((err) => {
+//     console.log(err);
+// })
