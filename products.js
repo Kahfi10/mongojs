@@ -56,7 +56,7 @@ const shirtSchema = mongoose.Schema([
         stock: {
             type: Number,
             required: true,
-            min: 0
+            min: [0, 'Stock tidak boleh minus']
         }
     },
     {
@@ -113,5 +113,5 @@ products.findOneAndUpdate({name: 'Celana Chino'}, {
 }, {new: true, runValidators: true}).then((result) => {
     console.log(result)
 }).catch((err) => {
-    console.log(err)
+    console.log(err.errors.stock.properties.message)
 });
