@@ -11,6 +11,16 @@ const personSchema = mongoose.Schema({
     lastName: String,
 })
 
+personSchema.pre('save', async function() {
+    this.firstName = 'angel'
+    this.lastName = 'luna'
+    console.log('persiapan menyimpan data')
+})
+
+personSchema.post('save', async function() {
+    console.log('data telah di simpan')
+})
+
 personSchema.virtual('fullname').get(function() {
     return `${this.firstName} ${this.lastName}`;
 })
@@ -22,4 +32,10 @@ const person = new Person({
     lastName: 'Kahfi'
 })
 
-console.log(person.fullname); // Ashabul Kahfi
+console.log(person)
+
+person.save().then((result) => {
+    console.log(result)
+}).catch((err) => {
+    console.log(err)
+})
